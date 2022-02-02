@@ -120,8 +120,13 @@ setMovementReturnCode_t Joint::setPosition(double desQ) {
     if (actuated) {
         if (std::isfinite(desQ)) {
             if (driveMode == CM_POSITION_CONTROL) {
-                drive->setPos(jointPositionToDriveUnit(desQ + q0));
-                drive->posControlConfirmSP();
+                if(id == ALEX_RIGHT_ANKLE || id == ALEX_LEFT_ANKLE){
+                    std::cout << "[Joint:setPosition] Actuate Ankle " << id << " to " << desQ + q0 << std::endl;
+                }
+                else{
+                    drive->setPos(jointPositionToDriveUnit(desQ + q0));
+                    drive->posControlConfirmSP();
+                }
                 return SUCCESS;
             } else {
                 return INCORRECT_MODE;

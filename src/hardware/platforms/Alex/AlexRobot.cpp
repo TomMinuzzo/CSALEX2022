@@ -192,7 +192,17 @@ setMovementReturnCode_t AlexRobot::setPosition(Eigen::VectorXd positions) {
         }
         if (i == ALEX_LEFT_ANKLE || i == ALEX_RIGHT_ANKLE)
         {
-            std::cout << "[setPosition] Actuate Ankles to " << positions[i] << std::endl;
+
+            std::cout << "[AlexRobot:setPosition] Actuate Ankle " << p->getId() << " to " << positions[i] << std::endl;
+            setMovementReturnCode_t setPosCode = ((AlexJoint *)p)->setPosition(positions[i]);
+            if (setPosCode == INCORRECT_MODE) {
+                spdlog::error("Joint {} is not in Position Control ", p->getId());
+                returnValue = INCORRECT_MODE;
+            } else if (setPosCode != SUCCESS) {
+                // Something bad happened
+                spdlog::error("Joint {} Unknown Error", p->getId());
+                returnValue = UNKNOWN_ERROR;
+            }
         }
 
         i++;
