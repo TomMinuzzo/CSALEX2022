@@ -192,8 +192,7 @@ setMovementReturnCode_t AlexRobot::setPosition(Eigen::VectorXd positions) {
         }
         if (i == ALEX_LEFT_ANKLE || i == ALEX_RIGHT_ANKLE)
         {
-            std::cout << "[setPosition] Actuate Ankles" << std::endl;
-        
+            std::cout << "[setPosition] Actuate Ankles to " << positions[i] << std::endl;
         }
 
         i++;
