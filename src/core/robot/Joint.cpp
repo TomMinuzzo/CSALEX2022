@@ -120,7 +120,7 @@ setMovementReturnCode_t Joint::setPosition(double desQ) {
     if (actuated) {
         if (std::isfinite(desQ)) {
             if (driveMode == CM_POSITION_CONTROL) {
-                if(id == 4 || id == 5){
+                if(id == 5 || id == 6){
                     std::cout << "[Joint:setPosition] Actuate Ankle " << id << " to " << jointPositionToDriveUnit(desQ + q0) << std::endl;
                     drive->setPos(0);
                     drive->posControlConfirmSP();
