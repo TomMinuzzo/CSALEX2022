@@ -91,6 +91,8 @@ struct ExoJointLimits {
     double hipMin;
     double kneeMax;
     double kneeMin;
+    double ankleMax;
+    double ankleMin;
 };
 
 

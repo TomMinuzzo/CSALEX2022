@@ -11,6 +11,7 @@
 #define AlexJoint_H_INCLUDED
 
 #include "CopleyDrive.h"
+#include "SchneiderDrive.h"
 #include "Joint.h"
 #include "RobotParams.h"
 
