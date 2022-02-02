@@ -84,7 +84,7 @@ double AlexJoint::getTorque() {
 }
 
 void AlexJoint::setPositionOffset(double offset) {
-    if(this->NodeID==ALEX_LEFT_HIP || this->NodeID==ALEX_RIGHT_HIP || this->NodeID==ALEX_LEFT_KNEE  ||this->NodeID==ALEX_RIGHT_KNEE ){
+    if(this->id==ALEX_LEFT_HIP || this->id==ALEX_RIGHT_HIP || this->id==ALEX_LEFT_KNEE  ||this->id==ALEX_RIGHT_KNEE ){
         ((CopleyDrive *)drive)->setPositionOffset(-jointPositionToDriveUnit(offset));
     }
     else{
@@ -93,7 +93,7 @@ void AlexJoint::setPositionOffset(double offset) {
 }
 
 bool AlexJoint::setOverloadBehaviour(UNSIGNED32 mask, double window) {
-    if(this->NodeID==ALEX_LEFT_HIP || this->NodeID==ALEX_RIGHT_HIP || this->NodeID==ALEX_LEFT_KNEE  ||this->NodeID==ALEX_RIGHT_KNEE ){
+    if(this->id==ALEX_LEFT_HIP || this->id==ALEX_RIGHT_HIP || this->id==ALEX_LEFT_KNEE  ||this->id==ALEX_RIGHT_KNEE ){
         ((CopleyDrive *)drive)->setFaultMask(mask);
         ((CopleyDrive *)drive)->setTrackingWindow(abs(window*JDSlope));
     }
