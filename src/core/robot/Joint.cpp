@@ -121,7 +121,7 @@ setMovementReturnCode_t Joint::setPosition(double desQ) {
         if (std::isfinite(desQ)) {
             if (driveMode == CM_POSITION_CONTROL) {
                 if(id == 4 || id == 5){
-                    std::cout << "[Joint:setPosition] Actuate Ankle " << id << " to " << desQ + q0 << std::endl;
+                    std::cout << "[Joint:setPosition] Actuate Ankle " << id << " to " << jointPositionToDriveUnit(desQ + q0) << std::endl;
                 }
                 else{
                     drive->setPos(jointPositionToDriveUnit(desQ + q0));
