@@ -497,8 +497,6 @@ bool AlexRobot::initialiseJoints() {
         } else {// is an ankle  ->  CHANGE DRIVE to Schneider drives NOT COPLEY
             motorDrives.push_back(new SchneiderDrive(id + 1));
             joints.push_back(new AlexJoint(id, AlexJointLimits.ankleMin, AlexJointLimits.ankleMax, ALEXankleJDP, motorDrives[id]));
-            std::cout << "[AlexRobot:initialiseJoints] Joint " << id << " is initialised." << std::endl;
-
 
 
 
@@ -507,6 +505,9 @@ bool AlexRobot::initialiseJoints() {
            
            // DO NOTHING FOR NOW - WILL NEED TO ADD ANKLES
         }
+        std::cout << "[AlexRobot:initialiseJoints] Joint " << id << " is initialised at address " << joints.id << std::endl;
+        std::cout << "[AlexRobot:initialiseJoints] Drive " << id + 1 << " is initialised at address " < motorDrives.id << std::endl;
+
         
     }
     return true;

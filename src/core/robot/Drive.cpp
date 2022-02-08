@@ -86,7 +86,7 @@ bool Drive::setTorque(int torque) {
 
 
 int Drive::getPos() {
-    std::cout << "[Drive:getPos] Joint " << NodeID << " is at " << actualPos << std::endl;
+    //std::cout << "[Drive:getPos] Joint " << NodeID << " is at " << actualPos << std::endl;
 
     return actualPos;
 }
