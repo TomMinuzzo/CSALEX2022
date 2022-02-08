@@ -1308,7 +1308,7 @@ jointspace_state AlexTrajectoryGenerator::taskspace_state_to_jointspace_state(
     } else {
         jointspaceState.q[ALEX_RIGHT_ANKLE]= M_PI_2 + RightTempAngles.at(2);
     }
-    double anklePos = 0.0001;
+    double anklePos = 1.31;
     jointspaceState.q[ALEX_LEFT_ANKLE]= anklePos;
     jointspaceState.q[ALEX_RIGHT_ANKLE]= anklePos;
 
