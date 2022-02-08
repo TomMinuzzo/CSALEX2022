@@ -1,0 +1,40 @@
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/ubuntu/Desktop/CSALEX2022/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_63a8c/fast && /usr/bin/make -f CMakeFiles/cmTC_63a8c.dir/build.make CMakeFiles/cmTC_63a8c.dir/build
+make[1]: Entering directory '/home/ubuntu/Desktop/CSALEX2022/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_63a8c.dir/src.c.o
+/usr/bin/arm-linux-gnueabihf-gcc   -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_63a8c.dir/src.c.o   -c /home/ubuntu/Desktop/CSALEX2022/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_63a8c
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_63a8c.dir/link.txt --verbose=1
+/usr/bin/arm-linux-gnueabihf-gcc  -DCMAKE_HAVE_LIBC_PTHREAD    -rdynamic CMakeFiles/cmTC_63a8c.dir/src.c.o  -o cmTC_63a8c 
+/usr/lib/gcc-cross/arm-linux-gnueabihf/9/../../../../arm-linux-gnueabihf/bin/ld: CMakeFiles/cmTC_63a8c.dir/src.c.o: in function `main':
+src.c:(.text+0x36): undefined reference to `pthread_create'
+/usr/lib/gcc-cross/arm-linux-gnueabihf/9/../../../../arm-linux-gnueabihf/bin/ld: src.c:(.text+0x3e): undefined reference to `pthread_detach'
+/usr/lib/gcc-cross/arm-linux-gnueabihf/9/../../../../arm-linux-gnueabihf/bin/ld: src.c:(.text+0x48): undefined reference to `pthread_join'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_63a8c.dir/build.make:87: cmTC_63a8c] Error 1
+make[1]: Leaving directory '/home/ubuntu/Desktop/CSALEX2022/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_63a8c/fast] Error 2
+
+
+Source file was:
+#include <pthread.h>
+
+void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+

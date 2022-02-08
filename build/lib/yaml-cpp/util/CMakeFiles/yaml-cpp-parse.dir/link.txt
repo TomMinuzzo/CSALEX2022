@@ -1,0 +1,1 @@
+/usr/bin/arm-linux-gnueabihf-g++  -static  -Wall -static-libstdc++ -static-libgcc -O3   CMakeFiles/yaml-cpp-parse.dir/parse.cpp.o  -o parse  ../libyaml-cpp.a 

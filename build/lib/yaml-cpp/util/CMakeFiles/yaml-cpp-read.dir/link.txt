@@ -1,0 +1,1 @@
+/usr/bin/arm-linux-gnueabihf-g++  -static  -Wall -static-libstdc++ -static-libgcc -O3   CMakeFiles/yaml-cpp-read.dir/read.cpp.o  -o read  ../libyaml-cpp.a 
