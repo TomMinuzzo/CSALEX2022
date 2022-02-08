@@ -35,8 +35,10 @@ bool AlexTrajectoryGenerator::initialiseTrajectory(RobotMode mvmnt, std::vector<
     jointSpaceState.q[1] = (qdeg[1]);
     jointSpaceState.q[2] = (qdeg[2]);
     jointSpaceState.q[3] = (qdeg[3]);
-    jointSpaceState.q[4] = deg2rad(85);
-    jointSpaceState.q[5] = deg2rad(85);
+    //jointSpaceState.q[4] = deg2rad(85);
+    //jointSpaceState.q[5] = deg2rad(85);
+    jointSpaceState.q[4] = (qdeg[4]);
+    jointSpaceState.q[5] = (qdeg[5]);
     jointSpaceState.time = 0;
     setTrajectoryParameters(movementTrajMap[mvmnt]);
     generateAndSaveSpline(jointSpaceState);
@@ -49,8 +51,10 @@ bool AlexTrajectoryGenerator::initialiseTrajectory(RobotMode mvmnt, Foot stanceF
     jointSpaceState.q[1] = (qdeg[1]);
     jointSpaceState.q[2] = (qdeg[2]);
     jointSpaceState.q[3] = (qdeg[3]);
-    jointSpaceState.q[4] = deg2rad(85);
-    jointSpaceState.q[5] = deg2rad(85);
+    //jointSpaceState.q[4] = deg2rad(85);
+    //jointSpaceState.q[5] = deg2rad(85);
+    jointSpaceState.q[4] = (qdeg[4]);
+    jointSpaceState.q[5] = (qdeg[5]);
     jointSpaceState.time = 0;
     setTrajectoryParameters(movementTrajMap[mvmnt]);
     // by default foot stance is right in movementTrajMap, set to left when needed.ß
