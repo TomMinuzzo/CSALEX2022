@@ -116,20 +116,20 @@ private:
    };
 
   /**
- * Paramater definitions: Knee motor reading and corresponding angle. Used for mapping between degree and motor values.
+ * Paramater definitions: Ankle motor reading and corresponding angle. Used for mapping between degree and motor values.
  */
   JointDrivePairs ALEXankleJDP{
        -800000,       // drivePosA
        800000,            //drivePosB
-       deg2rad(-15),  //jointPosA
-       deg2rad(15)    //jointPosB
+       deg2rad(105),  //jointPosA
+       deg2rad(75)    //jointPosB
    };
 
   /**
  * Defines the Joint Limits of the X2 Exoskeleton
  *
  */
-  ExoJointLimits AlexJointLimits = {deg2rad(210), deg2rad(70), deg2rad(120), deg2rad(0), deg2rad(-15), deg2rad(15)};
+  ExoJointLimits AlexJointLimits = {deg2rad(210), deg2rad(70), deg2rad(120), deg2rad(0), deg2rad(105), deg2rad(75)};
 
   std::string robotName_;
   RobotParameters x2Parameters;
