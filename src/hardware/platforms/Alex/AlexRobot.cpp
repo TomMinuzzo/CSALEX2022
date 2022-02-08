@@ -497,7 +497,8 @@ bool AlexRobot::initialiseJoints() {
         } else {// is an ankle  ->  CHANGE DRIVE to Schneider drives NOT COPLEY
             motorDrives.push_back(new SchneiderDrive(id + 1));
             joints.push_back(new AlexJoint(id, AlexJointLimits.ankleMin, AlexJointLimits.ankleMax, ALEXankleJDP, motorDrives[id]));
-        
+            std::cout << "[AlexRobot:initialiseJoints] Joint " << id << " is initialised." << std::endl;
+
 
 
 
@@ -554,7 +555,7 @@ std::vector<double> AlexRobot::getJointStates() {
             robotJointspace.push_back(simJointPositions_(i));
         #else
             robotJointspace.push_back(joint->getPosition());
-            std::cout << "[AlexRobot:getJointStates] Joint " << joint << " is at " << joint->getPosition() << std::endl;
+            std::cout << "[AlexRobot:getJointStates] Joint " << i << " is at " << joint->getPosition() << std::endl;
 
         #endif
         i++;
