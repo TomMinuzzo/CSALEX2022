@@ -505,8 +505,8 @@ bool AlexRobot::initialiseJoints() {
            
            // DO NOTHING FOR NOW - WILL NEED TO ADD ANKLES
         }
-        std::cout << "[AlexRobot:initialiseJoints] Joint " << id << " is initialised at address " << joints.id << std::endl;
-        std::cout << "[AlexRobot:initialiseJoints] Drive " << id + 1 << " is initialised at address " < motorDrives.id << std::endl;
+        std::cout << "[AlexRobot:initialiseJoints] Joint " << id << " is initialised at address " << joints[id] << std::endl;
+        std::cout << "[AlexRobot:initialiseJoints] Drive " << id + 1 << " is initialised at address " < motorDrives[id] << std::endl;
 
         
     }
