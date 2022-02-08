@@ -554,6 +554,8 @@ std::vector<double> AlexRobot::getJointStates() {
             robotJointspace.push_back(simJointPositions_(i));
         #else
             robotJointspace.push_back(joint->getPosition());
+            std::cout << "[AlexRobot:getJointStates] Joint " << joint << " is at " << joint->getPosition() << std::endl;
+
         #endif
         i++;
     }
