@@ -127,3 +127,64 @@ bool SchneiderDrive::setFaultMask(UNSIGNED32 mask) {
 
     return true;
 }
+
+
+bool Drive::initPDOs() {
+    spdlog::debug("Drive::initPDOs");
+
+    // Calculate COB_ID. If TPDO:
+    //int COB_ID = 0x100 * PDO_Num + 0x80 + NodeID;
+    int TPDO_Num = 1;
+    spdlog::debug("Set up STATUS_WORD TPDO on Node {}", NodeID);
+    if (sendSDOMessages(generateTPDOConfigSDO(TPDO_MappedObjects[TPDO_Num], TPDO_Num, TPDO_COBID[TPDO_Num] + NodeID, 0xFF)) < 0) {
+        spdlog::error("Set up STATUS_WORD TPDO FAILED on node {}", NodeID);
+        return false;
+    } 
+
+    spdlog::debug("Set up ACTUAL_POS and ACTUAL_VEL TPDO on Node {}", NodeID);
+    TPDO_Num = 2;
+    if (sendSDOMessages(generateTPDOConfigSDO(TPDO_MappedObjects[TPDO_Num], TPDO_Num, TPDO_COBID[TPDO_Num] + NodeID, 0x01)) < 0) {
+        spdlog::error("Set up ACTUAL_POS and ACTUAL_VEL TPDO FAILED on node {}", NodeID);
+        return false;
+    } 
+
+    /*
+    spdlog::debug("Set up ACTUAL_TOR TPDO on Node {}", NodeID);
+    TPDO_Num = 3;
+    if (sendSDOMessages(generateTPDOConfigSDO(TPDO_MappedObjects[TPDO_Num], TPDO_Num, TPDO_COBID[TPDO_Num] + NodeID, 0x01)) < 0) {
+        spdlog::error("Set up ACTUAL_TOR TPDO FAILED on node {}", NodeID);
+        return false;
+    } 
+    */
+
+    // Calculate COB_ID. If RPDO:
+    //int COB_ID = 0x100 * (PDO_Num+1) + NodeID;
+    spdlog::debug("Set up CONTROL_WORD RPDO on Node {}", NodeID);
+    int RPDO_Num = 1;
+    if (sendSDOMessages(generateRPDOConfigSDO(RPDO_MappedObjects[RPDO_Num], RPDO_Num, RPDO_COBID[RPDO_Num] + NodeID, 0xff)) < 0) {
+        spdlog::error("Set up CONTROL_WORD RPDO FAILED on node {}", NodeID);
+        return false;
+    } 
+    spdlog::debug("Set up TARGET_POS RPDO on Node {}", NodeID);
+    RPDO_Num = 2;
+    if (sendSDOMessages(generateRPDOConfigSDO(RPDO_MappedObjects[RPDO_Num], RPDO_Num, RPDO_COBID[RPDO_Num] + NodeID, 0xff)) < 0) {
+        spdlog::error("Set up TARGET_POS RPDO FAILED on node {}", NodeID);
+        return false;
+    }
+    /*
+    spdlog::debug("Set up TARGET_VEL RPDO on Node {}", NodeID);
+    RPDO_Num = 3;
+    if (sendSDOMessages(generateRPDOConfigSDO(RPDO_MappedObjects[RPDO_Num], RPDO_Num, RPDO_COBID[RPDO_Num] + NodeID, 0xff)) < 0) {
+        spdlog::error("Set up ARGET_VEL RPDO FAILED on node {}", NodeID);
+        return false;
+    } 
+    spdlog::debug("Set up TARGET_TOR RPDO on Node {}", NodeID);
+    RPDO_Num = 4;
+    if (sendSDOMessages(generateRPDOConfigSDO(RPDO_MappedObjects[RPDO_Num], RPDO_Num, RPDO_COBID[RPDO_Num] + NodeID, 0xff)) < 0) {
+        spdlog::error("Set up TARGET_TOR RPDO FAILED on node {}", NodeID);
+        return false;
+    } 
+    return true;
+    }
+    */
+

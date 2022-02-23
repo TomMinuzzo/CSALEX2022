@@ -158,5 +158,24 @@ class SchneiderDrive : public Drive {
      * \return false if not
      */
     bool setFaultMask(UNSIGNED32 mask);
+
+
+    /** OVERWRITING BASE CLASS
+           * \brief Initialises a standard set of PDOs for the use of the drive. These are:
+           *
+           *   TPDO1: COB-ID 180+{NODE-ID}: Status Word (0x6041), Send on Internal Event Trigger
+           *   TPDO2: COB-ID 280+{NODE-ID}: Actual Position (0x6064), Actual Velocity (0x606C), Sent every SYNC Message
+           *   
+           * REMOVING  TPDO3: COB-ID 380+{NODE-ID}: Actual Torque (0x607C), Sent every SYNC MEssage
+           *
+           *   RPDO3: COB-ID 300+{NODE-ID}: Target Position (0x607A), Applied immediately when received
+           * REMOVING  RPDO4: COB-ID 400+{NODE-ID}: Target Velocity (0x60FF), Applied immediately when received
+           * REMOVING  RPDO5: COB-ID 500+{NODE-ID}: Target Torque (0x6071), Applied immediately when received
+           *
+           * \return true
+           * \return false
+           */
+    virtual bool initPDOs();
+
 };
 #endif
