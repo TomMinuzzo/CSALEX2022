@@ -129,7 +129,7 @@ bool SchneiderDrive::setFaultMask(UNSIGNED32 mask) {
 }
 
 
-bool Drive::initPDOs() {
+bool SchneiderDrive::initPDOs() {
     spdlog::debug("Drive::initPDOs");
 
     // Calculate COB_ID. If TPDO:
