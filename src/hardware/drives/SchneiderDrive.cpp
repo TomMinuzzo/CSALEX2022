@@ -183,8 +183,8 @@ bool Drive::initPDOs() {
     if (sendSDOMessages(generateRPDOConfigSDO(RPDO_MappedObjects[RPDO_Num], RPDO_Num, RPDO_COBID[RPDO_Num] + NodeID, 0xff)) < 0) {
         spdlog::error("Set up TARGET_TOR RPDO FAILED on node {}", NodeID);
         return false;
-    } 
+    } */
     return true;
     }
-    */
+    
 
