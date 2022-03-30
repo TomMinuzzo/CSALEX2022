@@ -1321,21 +1321,27 @@ jointspace_state AlexTrajectoryGenerator::taskspace_state_to_jointspace_state(
     double anklePosStable = 1.518;
     //80deg is 1.396 rad
     double anklePosLean = 1.396;
+    double anklePos;
 
      if (trajectoryParameters.left_foot_on_tilt) {
         jointspaceState.q[ALEX_LEFT_ANKLE]= anklePosLean;
+        anklePos=anklePosLean;
      }
      else{
         jointspaceState.q[ALEX_LEFT_ANKLE]= anklePosStable;
+        anklePos=anklePosStable;
 
      }
      if (trajectoryParameters.right_foot_on_tilt) {
         jointspaceState.q[ALEX_RIGHT_ANKLE]= anklePosLean;
+        anklePos=anklePosLean;
+
      }
      else{
         jointspaceState.q[ALEX_RIGHT_ANKLE]= anklePosStable;
-     }
+        anklePos=anklePosStable;
 
+     }
     std::cout << "[taskspace_state_to_jointspace_state] set ankle pos to" << anklePos << std::endl;
 
 
