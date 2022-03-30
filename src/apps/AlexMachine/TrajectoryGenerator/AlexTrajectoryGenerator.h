@@ -187,8 +187,8 @@ static std::map<RobotMode, TrajectoryParameters> movementTrajMap = {
                           .seat_height = 0.42,     // sit-stand
                           .step_end_height = STAIRHEIGHT,  // stairs
                           .slope_angle = 0.0,      // tilted path
-                          .left_foot_on_tilt = false,
-                          .right_foot_on_tilt = false}},
+                          .left_foot_on_tilt = true,
+                          .right_foot_on_tilt = true}},
     {RobotMode::DWNSTAIR, {.step_duration = STAIRTIME * 2, .step_height = STEPHEIGHT, .step_length = STAIRSTEP,
                            .hip_height_slack = LEGSLACK,       // never make this zero, or else it'll probably make a trig/pythag give NaN due to invalid triangle
                            .torso_forward_angle = TORSOANGLE,  // TODO: make this a vector/array?

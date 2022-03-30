@@ -1295,6 +1295,8 @@ jointspace_state AlexTrajectoryGenerator::taskspace_state_to_jointspace_state(
     //[2] angleAtAnkle //  CW angle of lower leg from vertical up
 
     jointspaceState.time = taskspaceState.time;
+
+    
     if (trajectoryParameters.left_foot_on_tilt) {
         jointspaceState.q[ALEX_LEFT_ANKLE]= M_PI_2 + LeftTempAngles.at(2) - trajectoryParameters.slope_angle;
     } else {
@@ -1312,9 +1314,27 @@ jointspace_state AlexTrajectoryGenerator::taskspace_state_to_jointspace_state(
     } else {
         jointspaceState.q[ALEX_RIGHT_ANKLE]= M_PI_2 + RightTempAngles.at(2);
     }
-    double anklePos = 1.31;
-    jointspaceState.q[ALEX_LEFT_ANKLE]= anklePos;
-    jointspaceState.q[ALEX_RIGHT_ANKLE]= anklePos;
+
+    //Code starts here
+    
+    //87deg is 1.518 rad
+    double anklePosStable = 1.518;
+    //80deg is 1.396 rad
+    double anklePosLean = 1.396;
+
+     if (trajectoryParameters.left_foot_on_tilt) {
+        jointspaceState.q[ALEX_LEFT_ANKLE]= anklePosLean;
+     }
+     else{
+        jointspaceState.q[ALEX_LEFT_ANKLE]= anklePosStable;
+
+     }
+     if (trajectoryParameters.right_foot_on_tilt) {
+        jointspaceState.q[ALEX_RIGHT_ANKLE]= anklePosLean;
+     }
+     else{
+        jointspaceState.q[ALEX_RIGHT_ANKLE]= anklePosStable;
+     }
 
     std::cout << "[taskspace_state_to_jointspace_state] set ankle pos to" << anklePos << std::endl;
 
