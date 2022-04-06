@@ -1328,7 +1328,7 @@ jointspace_state AlexTrajectoryGenerator::taskspace_state_to_jointspace_state(
     double anklePosStable = 1.518;
     //80deg is 1.396 rad
     //75deg is 1.31 rad
-    double anklePosLean = 1.31;
+    double anklePosLean = 1.396;
     double anklePos;
 
      if (trajectoryParameters.left_foot_on_tilt) {
