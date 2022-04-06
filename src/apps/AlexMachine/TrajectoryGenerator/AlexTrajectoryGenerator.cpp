@@ -507,7 +507,7 @@ std::vector<taskspace_state> AlexTrajectoryGenerator::generate_key_taskspace_sta
     }
     //stairs
     if (trajectoryParameters.stepType == StepType::Stair) {
-        Foot inferredStanceFoot = ((initialTaskspaceState.left_ankle_position.x > initialTaskspaceState.right_ankle_position.x)
+        /*Foot inferredStanceFoot = ((initialTaskspaceState.left_ankle_position.x > initialTaskspaceState.right_ankle_position.x)
                                        ? Foot::Left
                                        : Foot::Right);
         if (initialTaskspaceState.stance_foot != inferredStanceFoot)
@@ -599,11 +599,11 @@ std::vector<taskspace_state> AlexTrajectoryGenerator::generate_key_taskspace_sta
             stateEnd.torso_forward_angle = trajectoryParameters.torso_forward_angle;
             stateEnd.swing_ankle_down_angle = 0.0;
             keyTaskspaceStates.push_back(stateEnd);
-        }
+        }*/
     }
     //down stairs
     if (trajectoryParameters.stepType == StepType::DownStair) {
-        Foot inferredStanceFoot = ((initialTaskspaceState.left_ankle_position.x > initialTaskspaceState.right_ankle_position.x)
+        /*Foot inferredStanceFoot = ((initialTaskspaceState.left_ankle_position.x > initialTaskspaceState.right_ankle_position.x)
                                        ? Foot::Left
                                        : Foot::Right);
         if (initialTaskspaceState.stance_foot != inferredStanceFoot)
@@ -676,7 +676,7 @@ std::vector<taskspace_state> AlexTrajectoryGenerator::generate_key_taskspace_sta
             stateEnd.torso_forward_angle = trajectoryParameters.torso_forward_angle;
             stateEnd.swing_ankle_down_angle = 0.0;
             keyTaskspaceStates.push_back(stateEnd);
-        }
+        }*/
     }
 
     //Ramp up
