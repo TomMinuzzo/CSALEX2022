@@ -508,7 +508,7 @@ std::vector<taskspace_state> AlexTrajectoryGenerator::generate_key_taskspace_sta
     //stairs
     if (trajectoryParameters.stepType == StepType::Stair) {
         taskspace_state state1 = initialTaskspaceState;
-        state1.time=2.5;
+        state1.time=2;
         keyTaskspaceStates.push_back(state1);
         /*Foot inferredStanceFoot = ((initialTaskspaceState.left_ankle_position.x > initialTaskspaceState.right_ankle_position.x)
                                        ? Foot::Left
@@ -607,7 +607,7 @@ std::vector<taskspace_state> AlexTrajectoryGenerator::generate_key_taskspace_sta
     //down stairs
     if (trajectoryParameters.stepType == StepType::DownStair) {
         taskspace_state state1 = initialTaskspaceState;
-        state1.time=2.5;
+        state1.time=2;
         keyTaskspaceStates.push_back(state1);
 
         /*Foot inferredStanceFoot = ((initialTaskspaceState.left_ankle_position.x > initialTaskspaceState.right_ankle_position.x)
@@ -1327,7 +1327,8 @@ jointspace_state AlexTrajectoryGenerator::taskspace_state_to_jointspace_state(
     //87deg is 1.518 rad
     double anklePosStable = 1.518;
     //80deg is 1.396 rad
-    double anklePosLean = 1.396;
+    //75deg is 1.31 rad
+    double anklePosLean = 1.31;
     double anklePos;
 
      if (trajectoryParameters.left_foot_on_tilt) {
