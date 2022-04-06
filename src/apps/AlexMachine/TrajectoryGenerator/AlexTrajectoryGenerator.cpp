@@ -507,6 +507,9 @@ std::vector<taskspace_state> AlexTrajectoryGenerator::generate_key_taskspace_sta
     }
     //stairs
     if (trajectoryParameters.stepType == StepType::Stair) {
+        taskspace_state state1 = initialTaskspaceState;
+        state1.time=2.5;
+        keyTaskspaceStates.push_back(state1);
         /*Foot inferredStanceFoot = ((initialTaskspaceState.left_ankle_position.x > initialTaskspaceState.right_ankle_position.x)
                                        ? Foot::Left
                                        : Foot::Right);
@@ -603,6 +606,10 @@ std::vector<taskspace_state> AlexTrajectoryGenerator::generate_key_taskspace_sta
     }
     //down stairs
     if (trajectoryParameters.stepType == StepType::DownStair) {
+        taskspace_state state1 = initialTaskspaceState;
+        state1.time=2.5;
+        keyTaskspaceStates.push_back(state1);
+
         /*Foot inferredStanceFoot = ((initialTaskspaceState.left_ankle_position.x > initialTaskspaceState.right_ankle_position.x)
                                        ? Foot::Left
                                        : Foot::Right);
