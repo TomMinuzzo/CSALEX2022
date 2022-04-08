@@ -1350,7 +1350,7 @@ jointspace_state AlexTrajectoryGenerator::taskspace_state_to_jointspace_state(
         anklePos=anklePosStable;
 
      }
-    std::cout << "[taskspace_state_to_jointspace_state] set ankle pos to" << anklePos << std::endl;
+    //std::cout << "[taskspace_state_to_jointspace_state] set ankle pos to" << anklePos << std::endl;
 
 
     return jointspaceState;
