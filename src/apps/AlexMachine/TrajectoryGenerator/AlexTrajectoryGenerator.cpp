@@ -513,7 +513,7 @@ std::vector<taskspace_state> AlexTrajectoryGenerator::generate_key_taskspace_sta
         Foot inferredStanceFoot = ((initialTaskspaceState.left_ankle_position.x > initialTaskspaceState.right_ankle_position.x)
                                        ? Foot::Left
                                        : Foot::Right);
-        if (initialTaskspaceState.stance_foot != inferredStanceFoot){
+        if (trajectoryParameters.stance_foot != inferredStanceFoot){
             std::cout << "[generate_key_taskspace_states] Stance foot isn't in front of swing foot!?!!" << std::endl;
             std::cout << "[generate_key_taskspace_states] left_x: " << initialTaskspaceState.left_ankle_position.x << "right_x" << initialTaskspaceState.right_ankle_position.x << std::endl;
             //std::cout << "[generate_key_taskspace_states] initfoot: " << initialTaskspaceState.stance_foot << "inferred" << inferredStanceFoot << std::endl;
@@ -531,7 +531,7 @@ std::vector<taskspace_state> AlexTrajectoryGenerator::generate_key_taskspace_sta
         // Middle state
         {
             taskspace_state state1 = initialTaskspaceState;
-            if (initialTaskspaceState.stance_foot == Foot::Right)
+            if (trajectoryParameters.stance_foot == Foot::Right)
             //|| abs(initialTaskspaceState.left_ankle_position.x - initialTaskspaceState.right_ankle_position.x) <= deltaFootDistance)
             {
                 state1.left_ankle_position.x = initialTaskspaceState.left_ankle_position.x + ankleDistance;
@@ -555,7 +555,7 @@ std::vector<taskspace_state> AlexTrajectoryGenerator::generate_key_taskspace_sta
 
         {
             taskspace_state state2 = initialTaskspaceState;
-            if (initialTaskspaceState.stance_foot == Foot::Right)
+            if (trajectoryParameters.stance_foot == Foot::Right)
             //|| abs(initialTaskspaceState.left_ankle_position.x - initialTaskspaceState.right_ankle_position.x) <= deltaFootDistance)
             {
                 //A forward left swing
@@ -582,7 +582,7 @@ std::vector<taskspace_state> AlexTrajectoryGenerator::generate_key_taskspace_sta
         // Final state
         {
             taskspace_state stateEnd = initialTaskspaceState;
-            if (initialTaskspaceState.stance_foot == Foot::Right)
+            if (trajectoryParameters.stance_foot == Foot::Right)
             //|| abs(initialTaskspaceState.left_ankle_position.x - initialTaskspaceState.right_ankle_position.x) <= deltaFootDistance)
             {
                 stateEnd.left_ankle_position.x = initialTaskspaceState.right_ankle_position.x + trajectoryParameters.step_length;
