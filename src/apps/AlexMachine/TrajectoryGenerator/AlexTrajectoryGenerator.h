@@ -290,14 +290,14 @@ static std::map<RobotMode, TrajectoryParameters> movementTrajMap = {
                          .slope_angle = 0.0,      // tilted path
                          .left_foot_on_tilt = false,
                          .right_foot_on_tilt = false}},
-    {RobotMode::UNEVEN, {.step_duration = UNEVENSTEPTIME, .step_height = STEPHEIGHT, .step_length = RAMPSTEP*cos(deg2rad(RAMPANGLE)),
+    {RobotMode::UNEVEN, {.step_duration = UNEVENSTEPTIME, .step_height = STEPHEIGHT, .step_length = RAMPSTEP*cos(RAMPANGLE),
                          .hip_height_slack = LEGSLACK,       // never make this zero, or else it'll probably make a trig/pythag give NaN due to invalid triangle
                          .torso_forward_angle = TORSOANGLE,  // TODO: make this a vector/array?
                          .swing_ankle_down_angle = 0,
                          .stance_foot = Foot::Right,
                          .stepType = StepType::Uneven,
                          .seat_height = 0.42,     // sit-stand
-                         .step_end_height = RAMPSTEP*sin(deg2rad(RAMPANGLE)),  // stairs
+                         .step_end_height = RAMPSTEP*sin(RAMPANGLE),  // stairs
                          .slope_angle = 0.0,      // tilted path
                          .left_foot_on_tilt = true,
                          .right_foot_on_tilt = true}}
