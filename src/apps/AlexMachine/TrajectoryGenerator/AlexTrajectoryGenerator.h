@@ -51,7 +51,7 @@
 #define RAMPSTEP 0.25
 #define RAMPANGLE deg2rad(4)
 #define TILTANKLE deg2rad(10) //tbd, 12 deg for tilted path, 20 deg for ramp
-#define RAMPANKLE deg2rad(10) //tbd, need to measure when back in the lab
+#define RAMPANKLE deg2rad(90-10) //tbd, need to measure when back in the lab
 
 typedef double time_tt;  // time_t is already used
 
