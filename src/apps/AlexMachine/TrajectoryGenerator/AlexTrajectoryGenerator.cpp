@@ -1051,7 +1051,9 @@ std::vector<taskspace_state> AlexTrajectoryGenerator::generate_key_taskspace_sta
                                        : Foot::Right);
         if (initialTaskspaceState.stance_foot != inferredStanceFoot){
             std::cout << "[generate_key_taskspace_states] Stance foot isn't in front of swing foot!?!!" << std::endl;
-            std::cout << "[generate_key_taskspace_states] left_x: "<<initialTaskspaceState.left_ankle_position.x << "right_x" << initialTaskspaceState.right_ankle_position.x << std::endl;
+            std::cout << "[generate_key_taskspace_states] left_x: " << initialTaskspaceState.left_ankle_position.x << "right_x" << initialTaskspaceState.right_ankle_position.x << std::endl;
+            std::cout << "[generate_key_taskspace_states] initfoot: " << initialTaskspaceState.stance_foot << "inferred" << inferredStanceFoot << std::endl;
+
         }
         double ankleDistance = abs(initialTaskspaceState.left_ankle_position.x - initialTaskspaceState.right_ankle_position.x);
         double heightDistance = abs(initialTaskspaceState.left_ankle_position.z - initialTaskspaceState.right_ankle_position.z);
