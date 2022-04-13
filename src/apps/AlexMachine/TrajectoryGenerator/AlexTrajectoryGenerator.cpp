@@ -531,9 +531,8 @@ std::vector<taskspace_state> AlexTrajectoryGenerator::generate_key_taskspace_sta
         // Middle state
         {
             taskspace_state state1 = initialTaskspaceState;
-            if (trajectoryParameters.stance_foot == Foot::Right)
-            //|| abs(initialTaskspaceState.left_ankle_position.x - initialTaskspaceState.right_ankle_position.x) <= deltaFootDistance)
-            {
+            if (trajectoryParameters.stance_foot == Foot::Right){
+                std::cout << "STATE1Working"<< std::endl;
                 state1.left_ankle_position.x = initialTaskspaceState.left_ankle_position.x + ankleDistance;
                 state1.left_ankle_position.z = pilotParameters.ankle_height + trajectoryParameters.step_height;
                 state1.right_ankle_position.x = initialTaskspaceState.right_ankle_position.x;
@@ -555,10 +554,9 @@ std::vector<taskspace_state> AlexTrajectoryGenerator::generate_key_taskspace_sta
 
         {
             taskspace_state state2 = initialTaskspaceState;
-            if (trajectoryParameters.stance_foot == Foot::Right)
-            //|| abs(initialTaskspaceState.left_ankle_position.x - initialTaskspaceState.right_ankle_position.x) <= deltaFootDistance)
-            {
+            if (trajectoryParameters.stance_foot == Foot::Right){
                 //A forward left swing
+                                std::cout << "STATE2Working"<< std::endl;
                 state2.left_ankle_position.x = initialTaskspaceState.left_ankle_position.x + ankleDistance + 0.7 * sqrt(pow(legLengthSlacked, 2.0) - pow(legLengthSlacked - trajectoryParameters.step_length * trajectoryParameters.step_height, 2.0));
                 state2.left_ankle_position.z = pilotParameters.ankle_height + 0.5 * trajectoryParameters.step_height + trajectoryParameters.step_end_height;
                 state2.right_ankle_position.x = initialTaskspaceState.right_ankle_position.x;
@@ -582,18 +580,15 @@ std::vector<taskspace_state> AlexTrajectoryGenerator::generate_key_taskspace_sta
         // Final state
         {
             taskspace_state stateEnd = initialTaskspaceState;
-            if (trajectoryParameters.stance_foot == Foot::Right)
-            //|| abs(initialTaskspaceState.left_ankle_position.x - initialTaskspaceState.right_ankle_position.x) <= deltaFootDistance)
-            {
+            if (trajectoryParameters.stance_foot == Foot::Right){
+                                std::cout << "STATE3Working"<< std::endl;
                 stateEnd.left_ankle_position.x = initialTaskspaceState.right_ankle_position.x + trajectoryParameters.step_length;
                 stateEnd.right_ankle_position.x = initialTaskspaceState.right_ankle_position.x;
                 stateEnd.hip_position.x = initialTaskspaceState.right_ankle_position.x;
                 stateEnd.left_ankle_position.z = pilotParameters.ankle_height + trajectoryParameters.step_end_height;
                 stateEnd.right_ankle_position.z = pilotParameters.ankle_height;
                 stateEnd.hip_position.z = pilotParameters.ankle_height + legLengthSlacked;
-            }
-
-            else {
+            }else {
                 stateEnd.right_ankle_position.x = initialTaskspaceState.left_ankle_position.x;
                 stateEnd.left_ankle_position.x = initialTaskspaceState.left_ankle_position.x;
                 stateEnd.hip_position.x = initialTaskspaceState.left_ankle_position.x;
