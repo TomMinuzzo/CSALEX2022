@@ -1231,9 +1231,9 @@ std::vector<taskspace_state> AlexTrajectoryGenerator::generate_key_taskspace_sta
             stateEnd.swing_ankle_down_angle = 0.0;
             keyTaskspaceStates.push_back(stateEnd);
         }
-        */
+        
     }
-    return keyTaskspaceStates;
+    return keyTaskspaceStates;*/
 }
 
 // Generates discrete trajectory from parameters to use in control system
