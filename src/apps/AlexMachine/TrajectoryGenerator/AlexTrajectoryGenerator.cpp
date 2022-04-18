@@ -550,6 +550,11 @@ std::vector<taskspace_state> AlexTrajectoryGenerator::generate_key_taskspace_sta
             state1.torso_forward_angle = trajectoryParameters.torso_forward_angle;
             state1.swing_ankle_down_angle = 0.0;  // could be non-zero due to slight issues in forward kinematics/positioning, btu zero it out anyways
             keyTaskspaceStates.push_back(state1);
+            std::cout << "State1 Left.X"<< state1.left_ankle_position.x << std::endl;
+            std::cout << "State1 Left.Z"<< state1.left_ankle_position.z << std::endl;
+            std::cout << "State1 Right.X"<< state1.right_ankle_position.x << std::endl;
+            std::cout << "State1 Right.Z"<< state1.right_ankle_position.z << std::endl;
+
         }
 
         {
@@ -575,6 +580,11 @@ std::vector<taskspace_state> AlexTrajectoryGenerator::generate_key_taskspace_sta
             state2.torso_forward_angle = trajectoryParameters.torso_forward_angle;
             state2.swing_ankle_down_angle = 0.0;  // could be non-zero due to slight issues in forward kinematics/positioning, btu zero it out anyways
             keyTaskspaceStates.push_back(state2);
+            std::cout << "State2 Left.X"<< state2.left_ankle_position.x << std::endl;
+            std::cout << "State2 Left.Z"<< state2.left_ankle_position.z << std::endl;
+            std::cout << "State2 Right.X"<< state2.right_ankle_position.x << std::endl;
+            std::cout << "State2 Right.Z"<< state2.right_ankle_position.z << std::endl;
+
         }
 
         // Final state
