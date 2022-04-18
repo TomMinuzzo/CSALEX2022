@@ -352,6 +352,8 @@ std::vector<taskspace_state> AlexTrajectoryGenerator::generate_key_taskspace_sta
             std::cout << "State1 Left.Z"<< state1.left_ankle_position.z << std::endl;
             std::cout << "State1 Right.X"<< state1.right_ankle_position.x << std::endl;
             std::cout << "State1 Right.Z"<< state1.right_ankle_position.z << std::endl;
+            std::cout << "State1 Hip.X"<< state1.hip_position.x << std::endl;
+
         }
 
         {
@@ -391,6 +393,8 @@ std::vector<taskspace_state> AlexTrajectoryGenerator::generate_key_taskspace_sta
             std::cout << "State2 Left.Z"<< state2.left_ankle_position.z << std::endl;
             std::cout << "State2 Right.X"<< state2.right_ankle_position.x << std::endl;
             std::cout << "State2 Right.Z"<< state2.right_ankle_position.z << std::endl;
+            std::cout << "State1 Hip.X"<< state2.hip_position.x << std::endl;
+   
         }
 
         // Final state
@@ -430,6 +434,8 @@ std::vector<taskspace_state> AlexTrajectoryGenerator::generate_key_taskspace_sta
             std::cout << "StateEnd Left.Z"<< stateEnd.left_ankle_position.z << std::endl;
             std::cout << "StateEnd Right.X"<< stateEnd.right_ankle_position.x << std::endl;
             std::cout << "StateEnd Right.Z"<< stateEnd.right_ankle_position.z << std::endl;
+            std::cout << "StateEnd Hip.X"<< stateEnd.hip_position.x << std::endl;
+
         }
     }
 
