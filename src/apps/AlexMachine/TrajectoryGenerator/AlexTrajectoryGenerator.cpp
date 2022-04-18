@@ -600,7 +600,13 @@ std::vector<taskspace_state> AlexTrajectoryGenerator::generate_key_taskspace_sta
             stateEnd.torso_forward_angle = trajectoryParameters.torso_forward_angle;
             stateEnd.swing_ankle_down_angle = 0.0;
             keyTaskspaceStates.push_back(stateEnd);
+            std::cout << "StateEnd Left.X"<< stateEnd.left_ankle_position.x << std::endl;
+            std::cout << "StateEnd Left.Z"<< stateEnd.left_ankle_position.z << std::endl;
+            std::cout << "StateEnd Right.X"<< stateEnd.right_ankle_position.x << std::endl;
+            std::cout << "StateEnd Right.Z"<< stateEnd.right_ankle_position.z << std::endl;
+
         }
+        
         
         /*Foot inferredStanceFoot = ((initialTaskspaceState.left_ankle_position.x > initialTaskspaceState.right_ankle_position.x)
                                        ? Foot::Left
