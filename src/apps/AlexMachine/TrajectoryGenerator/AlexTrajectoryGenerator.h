@@ -167,7 +167,7 @@ static std::map<RobotMode, TrajectoryParameters> movementTrajMap = {
                           .slope_angle = 0.0,      // tilted path
                           .left_foot_on_tilt = false,
                           .right_foot_on_tilt = false}},
-    {RobotMode::NORMALWALK, {.step_duration = STEPTIME, .step_height = STEPHEIGHT, .step_length = STEPLENGTH,
+    {RobotMode::NORMALWALK, {.step_duration = STAIRTIME * 2, .step_height = STEPHEIGHT, .step_length = RAMPSTEP*cos(RAMPANGLE),
                              .hip_height_slack = LEGSLACK,  // never make this zero, or else it'll probably make a trig/pythag give NaN due to invalid triangle
                              .torso_forward_angle = TORSOANGLE,
                              //.torso_forward_angle = UNEVENTORSO,
@@ -176,10 +176,10 @@ static std::map<RobotMode, TrajectoryParameters> movementTrajMap = {
                              .stepType = StepType::Walk,
                              //.stepType = StepType::Uneven,
                              .seat_height = 0.42,     // sit-stand
-                             .step_end_height = 0.0,  // stairs
+                             .step_end_height = RAMPSTEP*sin(RAMPANGLE),  // stairs
                              .slope_angle = 0.0,      // tilted path
-                             .left_foot_on_tilt = false,
-                             .right_foot_on_tilt = false}},
+                             .left_foot_on_tilt = true,
+                             .right_foot_on_tilt = true}},
     {RobotMode::UPSTAIR, {.step_duration = STAIRTIME * 2, .step_height = STEPHEIGHT, .step_length = RAMPSTEP*cos(RAMPANGLE),
                           .hip_height_slack = LEGSLACK,       // never make this zero, or else it'll probably make a trig/pythag give NaN due to invalid triangle
                           .torso_forward_angle = TORSOANGLE,  // TODO: make this a vector/array?
