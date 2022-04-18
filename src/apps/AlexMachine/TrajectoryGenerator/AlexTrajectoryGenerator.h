@@ -52,6 +52,7 @@
 #define RAMPANGLE deg2rad(4)
 #define TILTANKLE deg2rad(10) //tbd, 12 deg for tilted path, 20 deg for ramp
 #define RAMPANKLE deg2rad(90-10) //tbd, need to measure when back in the lab
+#define RAMPANKLEMAX deg2rad(90-15) //tbd, need to measure when back in the lab
 
 typedef double time_tt;  // time_t is already used
 
@@ -290,7 +291,7 @@ static std::map<RobotMode, TrajectoryParameters> movementTrajMap = {
                          .slope_angle = 0.0,      // tilted path
                          .left_foot_on_tilt = false,
                          .right_foot_on_tilt = false}},
-    {RobotMode::UNEVEN, {.step_duration = UNEVENSTEPTIME, .step_height = STEPHEIGHT, .step_length = RAMPSTEP*cos(RAMPANGLE),
+    {RobotMode::UNEVEN, {.step_duration = STAIRTIME * 2, .step_height = STEPHEIGHT, .step_length = RAMPSTEP*cos(RAMPANGLE),
                          .hip_height_slack = LEGSLACK,       // never make this zero, or else it'll probably make a trig/pythag give NaN due to invalid triangle
                          .torso_forward_angle = TORSOANGLE,  // TODO: make this a vector/array?
                          .swing_ankle_down_angle = 0,
