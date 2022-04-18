@@ -405,7 +405,7 @@ std::vector<taskspace_state> AlexTrajectoryGenerator::generate_key_taskspace_sta
             {
                 stateEnd.left_ankle_position.x = initialTaskspaceState.right_ankle_position.x + trajectoryParameters.step_length;
                 stateEnd.right_ankle_position.x = initialTaskspaceState.right_ankle_position.x;
-                stateEnd.hip_position.x = initialTaskspaceState.right_ankle_position.x + trajectoryParameters.step_length * 2.6 / 3.0;
+                stateEnd.hip_position.x = initialTaskspaceState.right_ankle_position.x + trajectoryParameters.step_length * 2.999 / 3.0;
                 stateEnd.left_ankle_position.z = pilotParameters.ankle_height+trajectoryParameters.step_end_height/2.0;
                 stateEnd.right_ankle_position.z = pilotParameters.ankle_height;
 
@@ -415,7 +415,7 @@ std::vector<taskspace_state> AlexTrajectoryGenerator::generate_key_taskspace_sta
             else {
                 stateEnd.right_ankle_position.x = initialTaskspaceState.left_ankle_position.x + trajectoryParameters.step_length;
                 stateEnd.left_ankle_position.x = initialTaskspaceState.left_ankle_position.x;
-                stateEnd.hip_position.x = initialTaskspaceState.left_ankle_position.x + trajectoryParameters.step_length * 2.6 / 3.0;
+                stateEnd.hip_position.x = initialTaskspaceState.left_ankle_position.x + trajectoryParameters.step_length * 2.999/ 3.0;
                 stateEnd.left_ankle_position.z = pilotParameters.ankle_height;
                 stateEnd.right_ankle_position.z = pilotParameters.ankle_height+trajectoryParameters.step_end_height/2.0;
             }
@@ -423,7 +423,7 @@ std::vector<taskspace_state> AlexTrajectoryGenerator::generate_key_taskspace_sta
             if (trajectoryParameters.step_length < 0.1) {
                 stateEnd.hip_position.z = pilotParameters.ankle_height + legLengthSlacked;
             } else {
-                stateEnd.hip_position.z = pilotParameters.ankle_height + 0.999 * (sqrt(pow(legLengthSlacked, 2.0) - pow(trajectoryParameters.step_length * 2.6 / 3.0, 2.0)));
+                stateEnd.hip_position.z = pilotParameters.ankle_height + 0.999 * (sqrt(pow(legLengthSlacked, 2.0) - pow(trajectoryParameters.step_length * 2.999 / 3.0, 2.0)));
             }
             stateEnd.time = 1;
             stateEnd.torso_forward_angle = trajectoryParameters.torso_forward_angle;
