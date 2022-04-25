@@ -520,16 +520,12 @@ std::vector<taskspace_state> AlexTrajectoryGenerator::generate_key_taskspace_sta
             {
                 stateEnd.right_ankle_position.x = initialTaskspaceState.left_ankle_position.x - trajectoryParameters.step_length;
                 stateEnd.hip_position.x = initialTaskspaceState.left_ankle_position.x - trajectoryParameters.step_length / 2.0;
-                stateEnd.left_ankle_position.z = pilotParameters.ankle_height ;//+ trajectoryParameters.step_end_height;
-                stateEnd.right_ankle_position.z = pilotParameters.ankle_height -  trajectoryParameters.step_end_height/2.0;
-            
             } else {
                 stateEnd.left_ankle_position.x = initialTaskspaceState.right_ankle_position.x - trajectoryParameters.step_length;
                 stateEnd.hip_position.x = initialTaskspaceState.right_ankle_position.x - trajectoryParameters.step_length / 2.0;
-                stateEnd.left_ankle_position.z = pilotParameters.ankle_height - trajectoryParameters.step_end_height/2.0;
-                stateEnd.right_ankle_position.z = pilotParameters.ankle_height;//+  trajectoryParameters.step_end_height;
-            
             }
+            stateEnd.left_ankle_position.z = pilotParameters.ankle_height + trajectoryParameters.step_end_height;
+            stateEnd.right_ankle_position.z = pilotParameters.ankle_height+  trajectoryParameters.step_end_height;
             stateEnd.hip_position.z = pilotParameters.ankle_height + sqrt(pow(legLengthSlacked, 2.0) - pow(trajectoryParameters.step_length / 2.0, 2.0));
             stateEnd.time = 1;
             stateEnd.torso_forward_angle = trajectoryParameters.torso_forward_angle;
